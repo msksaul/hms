@@ -1,4 +1,4 @@
-import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react"
+import { IconTrendingUp } from "@tabler/icons-react"
 
 import { Badge } from "@/components/ui/badge"
 import {
@@ -69,35 +69,37 @@ const data = [
   },
 ]
 
-export function SectionCards() {
+export default function Units() {
   return (
-    <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
-      {
-        data.map((bed,idx) => (
-          <Card key={idx} className="@container/card">
-            <CardHeader>
-              <CardDescription>{bed.description}</CardDescription>
-              <CardTitle className="text-base tabular-nums @[250px]/card:text-2xl">
-                {bed.name}
-              </CardTitle>
-              <CardAction>
-                <Badge variant="secondary">
-                  <IconTrendingUp />
-                  {bed.editButton}
-                </Badge>
-              </CardAction>
-            </CardHeader>
-            <CardFooter className="flex-col items-start gap-1.5 text-sm">
-              <div className="line-clamp-1 flex gap-2 font-medium">
-                {bed.pending} <IconTrendingUp className="size-4" />
-              </div>
-              <div className="text-muted-foreground">
-                {bed.done}
-              </div>
-            </CardFooter>
-          </Card>
-        ))
-      }
+    <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+      <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
+        {
+          data.map((bed,idx) => (
+            <Card key={idx} className="@container/card">
+              <CardHeader>
+                <CardDescription>{bed.description}</CardDescription>
+                <CardTitle className="@[250px]/card:text-xl">
+                  {bed.name}
+                </CardTitle>
+                <CardAction>
+                  <Badge variant="secondary">
+                    <IconTrendingUp />
+                    {bed.editButton}
+                  </Badge>
+                </CardAction>
+              </CardHeader>
+              <CardFooter className="flex-col items-start gap-1.5 text-sm">
+                <div className="line-clamp-1 flex gap-2 font-medium">
+                  {bed.pending} <IconTrendingUp className="size-4" />
+                </div>
+                <div className="text-muted-foreground">
+                  {bed.done}
+                </div>
+              </CardFooter>
+            </Card>
+          ))
+        }
+      </div>
     </div>
   )
 }

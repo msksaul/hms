@@ -43,29 +43,14 @@ const data = {
   navMain: [
     {
       title: "Unidades",
-      url: "#",
+      url: "/dashboard/units",
       icon: IconBed,
     },
     {
       title: "Pacientes",
-      url: "#",
+      url: "/dashboard/patients",
       icon: IconUsers,
-    },
-/*     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    }, */
+    }
   ],
   navClouds: [
     {
@@ -171,8 +156,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-{/*         <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
