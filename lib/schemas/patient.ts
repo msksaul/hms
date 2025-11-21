@@ -1,48 +1,62 @@
 import * as z from 'zod';
 
 export const patientSchema = z.object({
-  name: z
+  legal_name: z
     .string()
-    .nonempty(),
+    .nonempty({ error: 'Indicar nombre' }),
   age: z
-    .number()
-    .min(0, "Edad inválida")
-    .max(150, "Edad inválida"),
+    .any()
+    .superRefine((val, ctx) => {
+      if(typeof val === 'string' && val.trim() === '') {
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Indicar edad'
+        })
+      }
+    })
+    .pipe(
+      z.coerce.number({ error: 'Número inválido' })
+        .int({ error: 'Edad inválida' })
+        .nonnegative({ error: 'Edad inválida' })
+    ),
   gender: z
     .enum(['M', 'F']),
   date: z
-    .iso.date(),
+    .iso.datetime(),
   phone: z
-    .coerce.number()
-    .int('Teléfono inválido')
-    .refine(
-      (num) => num.toString().length === 8,
-      'Teléfono debe tener 8 dígitos'
+    .any()
+    .transform((val) => (val === '' ? undefined : val))
+    .pipe(
+      z.coerce.number({ error: 'Teléfono inválido'})
+      .int('Teléfono inválido')
+      .refine(
+        (num) => num.toString().length === 8,
+        'Teléfono debe tener 8 dígitos'
+      )
+      .optional()
     ),
   address: z
     .string(),
-  ocupation: z
+  occupation: z
     .string(),
   responsible_person: z
     .string(),
   relationship: z
     .string(),
   fc_vital_signs: z
-    .number(),
+    .string(),
   fr_vital_signs: z
-    .number(),
+    .string(),
   t_vital_signs: z
-    .number(),
-  p_vital_signs: z
-    .number(),
-  a_vital_signs: z
-    .number(),
+    .string(),
+  p_a_vital_signs: z
+    .string(),
   sat_vital_signs: z
-    .number(),
+    .string(),
   weight: z
-    .number(),
+    .string(),
   height: z
-    .number(),
+    .string(),
   consultation_reason: z
     .string(),
   illness_history: z
@@ -56,15 +70,15 @@ export const patientSchema = z.object({
   allergy_history: z
     .string(),
   g_gynecological_obstetric: z
-    .number(),
+    .string(),
   p_gynecological_obstetric: z
-    .number(),
+    .string(),
   c_gynecological_obstetric: z
-    .number(),
+    .string(),
   ab_gynecological_obstetric: z
-    .number(),
+    .string(),
   fur_gynecological_obstetric: z
-    .iso.date(),
+    .iso.datetime(),
   physical_exam: z
     .string()
 })
