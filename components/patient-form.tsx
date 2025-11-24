@@ -2,7 +2,7 @@
 
 import { useForm } from '@tanstack/react-form'
 import { toast } from 'sonner'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from './ui/field'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
@@ -77,9 +77,8 @@ export default function PatientForm() {
           <FieldSet className='pb-4'>
             <FieldLegend>DATOS GENERALES</FieldLegend>
             <FieldGroup>
-              <form.Field
-                name="legal_name"
-                children={(field) => {
+              <form.Field name="legal_name">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -100,11 +99,10 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
+              </form.Field>
               <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
-                <form.Field
-                  name="age"
-                  children={(field) => {
+                <form.Field name="age">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -126,10 +124,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="gender"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="gender">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -158,10 +155,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="date"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="date">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -199,10 +195,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="phone"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="phone">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -224,12 +219,11 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
+                </form.Field>
               </div>
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                <form.Field
-                  name="address"
-                  children={(field) => {
+                <form.Field name="address">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -250,10 +244,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="occupation"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="occupation">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -274,12 +267,11 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
+                </form.Field>
               </div>
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                <form.Field
-                  name="responsible_person"
-                  children={(field) => {
+                <form.Field name="responsible_person">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -300,10 +292,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="relationship"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="relationship">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -324,7 +315,7 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
+                </form.Field>
               </div>
             </FieldGroup>
           </FieldSet>
@@ -332,9 +323,8 @@ export default function PatientForm() {
             <FieldLegend>SIGNOS VITALES</FieldLegend>
             <FieldGroup>
               <div className='grid grid-cols-2 sm:grid-cols-5 gap-4'>
-                <form.Field
-                  name="fc_vital_signs"
-                  children={(field) => {
+                <form.Field name="fc_vital_signs">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -356,10 +346,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="fr_vital_signs"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="fr_vital_signs">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -381,10 +370,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="t_vital_signs"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="t_vital_signs">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -407,10 +395,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="p_a_vital_signs"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="p_a_vital_signs">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -432,10 +419,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="weight"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="weight">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -457,10 +443,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="height"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="height">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -482,10 +467,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="sat_vital_signs"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="sat_vital_signs">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -508,15 +492,14 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
+                </form.Field>
                 </div>
             </FieldGroup>
           </FieldSet>
           <FieldSet className='pb-4'>
             <FieldLegend>MOTIVO DE CONSULTA</FieldLegend>
-              <form.Field
-                name="consultation_reason"
-                children={(field) => {
+              <form.Field name="consultation_reason">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -537,14 +520,12 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
-          </FieldSet>
-          
+              </form.Field>
+          </FieldSet>       
           <FieldSet className='pb-4'>
             <FieldLegend>HISTORIA DE LA ENFERMEDAD</FieldLegend>
-              <form.Field
-                name="illness_history"
-                children={(field) => {
+              <form.Field name="illness_history">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -565,14 +546,13 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
+              </form.Field>
           </FieldSet>
           <FieldSet className='pb-4'>
             <FieldLegend>ANTECEDENTES</FieldLegend>
             <FieldGroup>
-              <form.Field
-                name="medical_background"
-                children={(field) => {
+              <form.Field name="medical_background">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -593,10 +573,9 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
-              <form.Field
-                name="surgical_history"
-                children={(field) => {
+              </form.Field>
+              <form.Field name="surgical_history">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -617,10 +596,9 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
-              <form.Field
-                name="traumatic_history"
-                children={(field) => {
+              </form.Field>
+              <form.Field name="traumatic_history">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -641,10 +619,9 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
-              <form.Field
-                name="allergy_history"
-                children={(field) => {
+              </form.Field>
+              <form.Field name="allergy_history">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -665,12 +642,11 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
+              </form.Field>
               <FieldLegend>Gineco Obstétricos</FieldLegend>
               <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
-                <form.Field
-                  name="g_gynecological_obstetric"
-                  children={(field) => {
+                <form.Field name="g_gynecological_obstetric">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -691,10 +667,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="p_gynecological_obstetric"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="p_gynecological_obstetric">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -715,10 +690,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="c_gynecological_obstetric"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="c_gynecological_obstetric">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -739,10 +713,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="ab_gynecological_obstetric"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="ab_gynecological_obstetric">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -763,10 +736,9 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
-                <form.Field
-                  name="fur_gynecological_obstetric"
-                  children={(field) => {
+                </form.Field>
+                <form.Field name="fur_gynecological_obstetric">
+                  {(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid
                     return (
@@ -804,15 +776,14 @@ export default function PatientForm() {
                       </Field>
                     )
                   }}
-                />
+                </form.Field>
               </div>
             </FieldGroup>
           </FieldSet>
           <FieldSet>
             <FieldLegend>EXAMEN FÍSICO</FieldLegend>
-              <form.Field
-                name="physical_exam"
-                children={(field) => {
+              <form.Field name="physical_exam">
+                {(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
@@ -833,7 +804,7 @@ export default function PatientForm() {
                     </Field>
                   )
                 }}
-              />
+              </form.Field>
           </FieldSet>
         </form>
       </CardContent>
