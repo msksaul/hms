@@ -38,14 +38,16 @@ export function NavMain({
               </SidebarMenuButton>
             </SidebarMenuItem>
           </Link>
-          <SidebarMenuItem className="flex items-center gap-2">
-            <SidebarMenuButton
-              className="bg-chart-3 text-primary-foreground hover:bg-chart-3/90 hover:text-primary-foreground active:bg-chart-3/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
-            >
-              <IconCirclePlusFilled />
-              <span>Nueva Unidad</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+          <Link href='/dashboard/new-unit'>
+            <SidebarMenuItem className="flex items-center gap-2">
+              <SidebarMenuButton
+                className="bg-chart-3 text-primary-foreground hover:bg-chart-3/90 hover:text-primary-foreground active:bg-chart-3/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+              >
+                <IconCirclePlusFilled />
+                <span>Nueva Unidad</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </Link>
         </SidebarMenu>
         <SidebarMenu>
           {items.map((item) => (
